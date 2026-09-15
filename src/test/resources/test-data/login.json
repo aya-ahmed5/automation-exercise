@@ -1,0 +1,9 @@
+{
+  "name": "test",
+  "email": "test1555201454",
+  "password":"123456",
+  "firstname": "first",
+  "lastname": "last",
+  "message1": "ACCOUNT CREATED!",
+  "message": "Your email or password is incorrect!"
+}

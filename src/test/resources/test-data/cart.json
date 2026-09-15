@@ -1,0 +1,15 @@
+{
+
+  "product":
+  {
+    "productname": "Blue Top",
+    "price": "Rs. 500",
+    "quantity": "1",
+    "total": "Rs. 500"
+  },
+  "login": {
+    "email": "test120@gmail.com",
+    "password":"123456"
+  }
+
+}

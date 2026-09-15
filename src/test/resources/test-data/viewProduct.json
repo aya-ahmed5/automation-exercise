@@ -1,0 +1,15 @@
+{
+  "product":
+{
+  "name": "Blue Top",
+  "price": "Rs. 500"
+},
+  "review":
+  {
+    "name": "Nice Product",
+    "email": "test@gmail.com",
+    "text": "text review",
+    "message": "Thank you for your review."
+  }
+
+}
