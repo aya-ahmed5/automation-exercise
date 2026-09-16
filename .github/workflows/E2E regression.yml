@@ -33,9 +33,7 @@ jobs:
             maven-version: 3.9.11
 
         - name: Run E2E tests on Chrome (Linux)
-          run: mvn -Dtest="${TARGET}" -DExcuation_Type="LocalHeadless" -Dbrowser_Type="chrome" clear test
-
-
+          run: mvn -Dtest="${TARGET}" -DExcuation_Type="LocalHeadless" -Dbrowser_Type="chrome" clean test
 
     Edge_windows:
       runs-on: windows-latest
