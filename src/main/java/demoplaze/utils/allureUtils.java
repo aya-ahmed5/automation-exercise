@@ -1,13 +1,10 @@
 package demoplaze.utils;
 
-import demoplaze.utils.logger.logs;
+import demoplaze.utils.actions.logger.logs;
 import io.qameta.allure.Allure;
 import org.apache.logging.log4j.LogManager;
-import org.testng.reporters.Files;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Path;
 
 import static java.nio.file.Files.newInputStream;

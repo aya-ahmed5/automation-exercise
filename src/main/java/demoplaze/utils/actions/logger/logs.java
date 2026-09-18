@@ -1,4 +1,4 @@
-package demoplaze.utils.logger;
+package demoplaze.utils.actions.logger;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

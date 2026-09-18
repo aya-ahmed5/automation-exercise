@@ -2,7 +2,7 @@ package demoplaze.media;
 
 import demoplaze.utils.TimeManager;
 import demoplaze.utils.allureUtils;
-import demoplaze.utils.logger.logs;
+import demoplaze.utils.actions.logger.logs;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;

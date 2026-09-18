@@ -1,6 +1,6 @@
 package demoplaze.utils;
 
-import demoplaze.utils.logger.logs;
+import demoplaze.utils.actions.logger.logs;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

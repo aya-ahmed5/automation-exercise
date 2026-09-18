@@ -1,11 +1,8 @@
 package demoplaze.utils.actions;
 
-import demoplaze.utils.logger.logs;
+import demoplaze.utils.actions.logger.logs;
 import demoplaze.utils.waits.waitBot;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -21,20 +18,33 @@ public class ElementAction {
     }
     //click
     public ElementAction click(By locator){
-        waitBot.fluntWait().until(d->{
-            try{
+        waitBot.fluntWait().until(d -> {
+            try {
+                WebElement element = driver.findElement(locator);
                 scrolling(locator);
-                driver.findElement(locator).click();
-               // logs.infoMethod("susses to click element from element "+locator);
-                return true;
+                element.click();
+                logs.infoMethod("clicking sussess");
+                return true;   // <-- ناقصة في كودك الأصلي
+
+            } catch (ElementClickInterceptedException e) {
+                try {
+                    WebElement element = driver.findElement(locator);
+                    JavascriptExecutor js = (JavascriptExecutor) driver;
+                    js.executeScript("arguments[0].click();", element);
+                    logs.infoMethod("clicked via JS fallback due to intercepted element " + locator);
+                    return true;
+                } catch (Exception jsEx) {
+                    logs.errorMethod("JS click fallback also failed for element ", jsEx.getMessage());
+                    return false;
+                }
 
             } catch (Exception e) {
-                logs.errorMethod("error to click element from element ",e.getMessage());
+                logs.errorMethod("error to click element from element ", e.getMessage());
                 return false;
-
             }
         });
-   return this;
+
+        return this;
     }
 
     //gettext
@@ -154,7 +164,7 @@ return this;
     }
 
     public void scrolling(By locator){
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",findElement(locator));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView({block:'center'});",findElement(locator));
 
 
     }

@@ -1,7 +1,6 @@
 package demoplaze.validations;
 
 import demoplaze.utils.actions.ElementAction;
-import demoplaze.utils.logger.logs;
 import demoplaze.utils.waits.waitBot;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

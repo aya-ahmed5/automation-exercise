@@ -1,6 +1,6 @@
 package demoplaze.utils.actions;
 
-import demoplaze.utils.logger.logs;
+import demoplaze.utils.actions.logger.logs;
 import demoplaze.utils.waits.waitBot;
 import org.openqa.selenium.WebDriver;
 
