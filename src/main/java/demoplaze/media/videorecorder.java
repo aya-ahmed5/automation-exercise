@@ -3,7 +3,7 @@ package demoplaze.media;
 import com.automation.remarks.video.RecorderFactory;
 import com.automation.remarks.video.recorder.IVideoRecorder;
 import com.automation.remarks.video.recorder.VideoRecorder;
-import demoplaze.utils.logger.logs;
+import demoplaze.utils.actions.logger.logs;
 import demoplaze.utils.propertyReader;
 import ws.schild.jave.Encoder;
 import ws.schild.jave.EncoderException;

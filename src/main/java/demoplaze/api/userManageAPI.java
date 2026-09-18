@@ -1,6 +1,6 @@
 package demoplaze.api;
 
-import demoplaze.utils.logger.logs;
+import demoplaze.utils.actions.logger.logs;
 import demoplaze.validations.hardAssertions;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;

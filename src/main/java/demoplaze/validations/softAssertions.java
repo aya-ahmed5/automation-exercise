@@ -1,9 +1,8 @@
 package demoplaze.validations;
 
-import demoplaze.utils.logger.logs;
+import demoplaze.utils.actions.logger.logs;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.ITestResult;
 import org.testng.asserts.SoftAssert;
 
 public class softAssertions extends baseAssertions{

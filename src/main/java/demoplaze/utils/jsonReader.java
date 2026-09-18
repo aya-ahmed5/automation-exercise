@@ -1,7 +1,7 @@
 package demoplaze.utils;
 
 import com.jayway.jsonpath.JsonPath;
-import demoplaze.utils.logger.logs;
+import demoplaze.utils.actions.logger.logs;
 
 import java.io.File;
 
