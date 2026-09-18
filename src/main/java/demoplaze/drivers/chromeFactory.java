@@ -33,6 +33,7 @@ public class chromeFactory  extends driverFactory{
         prefs.put("download.directory_upgrade", true);
         options.setCapability(CapabilityType.ENABLE_DOWNLOADS, true);
         options.setExperimentalOption("prefs", prefs);
+        if(propertyReader.getproperty("Extension").equalsIgnoreCase("enabled"))
         options.addExtensions(extention);
         switch (propertyReader.getproperty("Excuation_Type")) {
             case "LocalHeadless" -> options.addArguments("--headless=new");

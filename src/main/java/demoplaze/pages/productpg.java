@@ -20,11 +20,13 @@ public class productpg {
 
     //locators
     private By productlocatorname(String productname) {
-        return By.xpath("//div[@class='product-overlay']/div/p[text()='" + productname + "']/following-sibling::a");
+       // return By.xpath("//div[@class='product-overlay']/div/p[text()='" + productname + "']/following-sibling::a");
+       return By.xpath("//div[@class='features_items']//div[@class='productinfo text-center']/p[text()='" + productname + "']/following-sibling::a");
     }
 
     private By productNameforhover(String productname) {
-        return By.xpath("//div[@class='productinfo text-center'] /p[text()='" + productname + "']");
+        return By.xpath("//div[@class='features_items']//div[@class='productinfo text-center'] /p[text()='" + productname + "']");
+       // return By.xpath("//div[@class='productinfo text-center'] /p[text()='" + productname + "']");
     }
     private By productPrice(String productname) {
         return By.xpath("//div[@class='productinfo text-center']/p[text()='" + productname +"']/preceding-sibling::h2");
@@ -41,7 +43,7 @@ public class productpg {
 
     public productpg addproducttocart(String productname) {
         driver.ElementAction().hover(productNameforhover(productname));
-        driver.ElementAction().isElementVisible(productlocatorname(productname));
+       // driver.ElementAction().isElementVisible(productlocatorname(productname));
         driver.ElementAction().click(productlocatorname(productname));
         return this;
     }
