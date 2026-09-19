@@ -45,18 +45,10 @@ public class listner implements IExecutionListener, IInvokedMethodListener,ITest
     }
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
         WebDriver driver = null;
-        if (method.isTestMethod()) {
-            boolean isUiTest =
-                    method.getTestMethod()
-                            .getConstructorOrMethod()
-                            .getMethod()
-                            .isAnnotationPresent(UiTest.class)
-                            ||
-                            testResult.getTestClass()
-                                    .getRealClass()
-                                    .isAnnotationPresent(UiTest.class);
-
-            if(isUiTest){
+        if (method.isTestMethod())
+        {
+            if(testResult.getInstance().getClass().isAnnotationPresent(UiTest.class))
+            {
                 videorecorder.stopRecording(testResult.getName());
                 if (testResult.getInstance() instanceof webDriverProvider provider){
             driver = provider.wrapDriver();
