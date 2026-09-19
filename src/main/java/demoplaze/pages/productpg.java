@@ -21,15 +21,19 @@ public class productpg {
     //locators
     private By productlocatorname(String productname) {
        // return By.xpath("//div[@class='product-overlay']/div/p[text()='" + productname + "']/following-sibling::a");
-       return By.xpath("//div[@class='features_items']//div[@class='productinfo text-center']/p[text()='" + productname + "']/following-sibling::a");
+       return By.xpath("//div[@class='features_items']//div[@class='overlay-content']/p[text()='" + productname + "']/following-sibling::a");
     }
+    private By productname(String productname) {
 
+        return By.xpath("//div[@class='features_items']//div[@class='productinfo text-center']/p[text()='" + productname + "']");
+
+    }
     private By productNameforhover(String productname) {
-        return By.xpath("//div[@class='features_items']//div[@class='productinfo text-center'] /p[text()='" + productname + "']");
-       // return By.xpath("//div[@class='productinfo text-center'] /p[text()='" + productname + "']");
+        return By.xpath("//div[@class='features_items']//div[@class='overlay-content']/p[text()='" + productname + "']");
+
     }
     private By productPrice(String productname) {
-        return By.xpath("//div[@class='productinfo text-center']/p[text()='" + productname +"']/preceding-sibling::h2");
+        return By.xpath("//div[@class='features_items']//div[@class='productinfo text-center']/p[text()='" + productname + "']/preceding-sibling::h2");
     }
 
     private By viewproductlocator(String productname) {
@@ -43,8 +47,7 @@ public class productpg {
 
     public productpg addproducttocart(String productname) {
         driver.ElementAction().hover(productNameforhover(productname));
-       // driver.ElementAction().isElementVisible(productlocatorname(productname));
-        driver.ElementAction().click(productlocatorname(productname));
+        driver.ElementAction().jsClick(productlocatorname(productname));
         return this;
     }
     public cartpg clickviewcart() {
@@ -76,7 +79,7 @@ public class productpg {
     }
     public productpg checlproductPrice(String productname, String expectedPrice){
         String price= driver.ElementAction().getText(productPrice(productname));
-        String name= driver.ElementAction().getText(productNameforhover(productname));
+        String name= driver.ElementAction().getText(productname(productname));
         driver.softAssertions().equals(price,expectedPrice,"product price is not equal");
         driver.softAssertions().equals(name,productname,"product name is not equal");
       return this;

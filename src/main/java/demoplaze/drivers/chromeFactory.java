@@ -5,12 +5,14 @@ import demoplaze.utils.propertyReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.chromium.ChromiumDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.net.URI;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class chromeFactory  extends driverFactory{
@@ -18,10 +20,15 @@ public class chromeFactory  extends driverFactory{
 
     public ChromeOptions getOptions() {
         ChromeOptions options = new ChromeOptions();
-
         options.addArguments("--disable-infobars");
         options.addArguments("--disable-notifications");
         options.addArguments("--start-maximized");
+        options.addArguments("--host-resolver-rules=" +
+                "MAP doubleclick.net 0.0.0.0," +
+                "MAP googlesyndication.com 0.0.0.0," +
+                "MAP googleadservices.com 0.0.0.0," +
+                "MAP adservice.google.com 0.0.0.0," +
+                "MAP pagead2.googlesyndication.com 0.0.0.0");
         String downloadPath = System.getProperty("user.dir")
                 + "\\src\\test\\resources\\download";
         Map<String, Object> prefs = new HashMap<>();

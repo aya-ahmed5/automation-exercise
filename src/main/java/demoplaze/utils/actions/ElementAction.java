@@ -20,23 +20,12 @@ public class ElementAction {
     public ElementAction click(By locator){
         waitBot.fluntWait().until(d -> {
             try {
-                WebElement element = driver.findElement(locator);
                 scrolling(locator);
+                WebElement element = driver.findElement(locator);
                 element.click();
                 logs.infoMethod("clicking sussess");
                 return true;   // <-- ناقصة في كودك الأصلي
 
-            } catch (ElementClickInterceptedException e) {
-                try {
-                    WebElement element = driver.findElement(locator);
-                    JavascriptExecutor js = (JavascriptExecutor) driver;
-                    js.executeScript("arguments[0].click();", element);
-                    logs.infoMethod("clicked via JS fallback due to intercepted element " + locator);
-                    return true;
-                } catch (Exception jsEx) {
-                    logs.errorMethod("JS click fallback also failed for element ", jsEx.getMessage());
-                    return false;
-                }
 
             } catch (Exception e) {
                 logs.errorMethod("error to click element from element ", e.getMessage());
@@ -45,6 +34,20 @@ public class ElementAction {
         });
 
         return this;
+    }
+    public ElementAction jsClick(By locator) {
+        waitBot.fluntWait().until(d -> {
+            try {
+                WebElement element = driver.findElement(locator);
+                ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+                return  true;
+            } catch (Exception e) {
+                logs.errorMethod("error to click element from js element ", e.getMessage());
+                return  false;
+            }
+
+        });
+       return this;
     }
 
     //gettext
@@ -110,6 +113,7 @@ return this;
         });
 
     }
+
     public ElementAction hover(By locator){
        waitBot.fluntWait().until(d->{
            try{
@@ -125,6 +129,9 @@ return this;
        });
 return this;
     }
+
+
+
     public boolean fileExcest(String name){
        return waitBot.fluntWait().until(d->{
             try{
@@ -164,7 +171,7 @@ return this;
     }
 
     public void scrolling(By locator){
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView({block:'center'});",findElement(locator));
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView({block:'center', inline:'center', behavior:'auto'});",findElement(locator));
 
 
     }

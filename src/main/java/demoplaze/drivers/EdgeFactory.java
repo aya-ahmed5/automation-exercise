@@ -30,7 +30,6 @@ public class EdgeFactory extends driverFactory {
         prefs.put("download.directory_upgrade", true);
         options.setCapability(CapabilityType.ENABLE_DOWNLOADS, true);
         options.setExperimentalOption("prefs", prefs);
-        options.addArguments("--disable-popup-blocking");
         options.addExtensions(extention);
         options.addExtensions(blur_image);
         switch (propertyReader.getproperty("Excuation_Type")) {
